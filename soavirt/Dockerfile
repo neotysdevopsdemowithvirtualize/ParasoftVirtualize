@@ -46,7 +46,7 @@ RUN set -x \
 	&& echo "<Context docBase=\"${SOAVIRT_HOME}\" path=\"\" reloadable=\"true\" />" > ${CATALINA_HOME}/soavirt/conf/Catalina/localhost/ROOT.xml \
 	&& sed -i 's/8080/$VIRTUALIZE_SERVER_PORT/g' ${SOAVIRT_HOME}/WEB-INF/config.properties \
 	&& sed -i 's/8443/$VIRTUALIZE_SERVER_SECURE_PORT/g' ${SOAVIRT_HOME}/WEB-INF/config.properties \
-	&& sed -i 's/8005/9005/g' ${CATALINA_HOME}/soavirt/conf/server.xml \
+	&& sed -i 's/8005/8005/g' ${CATALINA_HOME}/soavirt/conf/server.xml \
 	&& sed -i "s/8080/${VIRTUALIZE_SERVER_PORT}/g" ${CATALINA_HOME}/soavirt/conf/server.xml \
 	&& sed -i "s/8443/${VIRTUALIZE_SERVER_SECURE_PORT}/g" ${CATALINA_HOME}/soavirt/conf/server.xml \
 	&& sed -i 's/8009/0/g' ${CATALINA_HOME}/soavirt/conf/server.xml

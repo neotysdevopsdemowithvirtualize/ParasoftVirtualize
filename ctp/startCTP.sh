@@ -1,5 +1,5 @@
 #!/bin/sh
-whoami
+
 # Evaluate and replace the environment variables in the Virtualize config
 if [ -f $SOAVIRT_HOME/WEB-INF/config.properties ]
 then

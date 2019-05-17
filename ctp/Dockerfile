@@ -40,4 +40,4 @@ RUN set -x \
 
 EXPOSE ${CTP_PORT} ${LICENSE_SERVER_PORT}
 
-CMD [ "startCTP.sh" ]
+CMD [ "./startCTP.sh" ]

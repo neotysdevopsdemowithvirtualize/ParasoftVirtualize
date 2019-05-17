@@ -6,5 +6,4 @@
     <host>localhost</host>
     <port>8083</port>
   </remote-authentication>
-  
 </pstsec-config>

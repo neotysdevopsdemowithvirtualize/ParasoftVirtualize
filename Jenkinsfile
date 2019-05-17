@@ -37,10 +37,13 @@ pipeline {
 
 
         }
-         stage('deploy CTP') {
+     }
+     stage('deploy CTP') {
 
                 steps {
                      sh "docker-compose -f  ./ctp/docker-compose.yml up"
 
                 }
+     }
     }
+}

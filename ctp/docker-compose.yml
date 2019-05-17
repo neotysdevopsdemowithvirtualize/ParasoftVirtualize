@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  CTP:
+    image: neotysdevopsdemo/ctp:latest
+    hostname: ctp
+    restart: always
+    cap_drop:
+    - all
+    cap_add:
+    - NET_BIND_SERVICE
+    read_only: true
+    tmpfs:
+    - /tmp:rw,noexec,nosuid
+    environment:
+    - CTP_PORT=8180
+    ports:
+    - "8180:8180"
+    - "9080:9090"
+    - "9443:9443"

@@ -69,7 +69,7 @@ RUN set -x \
 	&& echo 'license.network.port=$LICENSE_SERVER_PORT' >> ${SOAVIRT_HOME}/WEB-INF/config.properties \
 	&& yum -y remove unzip \
 	&& yum clean all \
-	&& chmod 755 ${CTP_HOME}/startSOAVirtServer.sh.sh
+	&& chmod 755 ${CTP_HOME}/startSOAVirtServer.sh
 
 EXPOSE ${VIRTUALIZE_SERVER_PORT} ${VIRTUALIZE_SERVER_SECURE_PORT}
 

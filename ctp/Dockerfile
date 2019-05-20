@@ -37,7 +37,7 @@ RUN set -x \
 	&& echo "<% response.sendRedirect(\"/em\"); %>" >> ${CATALINA_HOME}/ctp/webapps/ROOT/index.jsp \
 	&& yum -y remove unzip \
 	&& yum clean all \
-	&& chmod 755 ${CTP_HOME}/startSOAVirtServer.sh
+	&& chmod 755 ${CTP_HOME}/startCTP.sh
 
 EXPOSE ${CTP_PORT} ${LICENSE_SERVER_PORT}
 

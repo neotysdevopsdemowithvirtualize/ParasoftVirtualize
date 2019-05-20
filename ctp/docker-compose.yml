@@ -14,8 +14,26 @@ services:
     - /tmp:rw,noexec,nosuid
     environment:
     - CTP_PORT=8080
+    - VIRTUALIZE_SERVER_NAME=soavirt
     - LICENSE_SERVER_HOST=10.0.0.148
     ports:
     - "8180:8080"
+  SOAVIRT:
+    image: neotysdevopsdemo/soavirt:latest
+    hostname: soavirt
+    restart: always
+    cap_drop:
+    - all
+    cap_add:
+    - NET_BIND_SERVICE
+    read_only: false
+    tmpfs:
+    - /tmp:rw,noexec,nosuid
+    environment:
+    - CTP_PORT=8080
+    - VIRTUALIZE_SERVER_NAME=soavirt
+    - LICENSE_SERVER_HOST=10.0.0.148
+    - CTP_HOST=ctp
+    ports:
     - "9080:9080"
     - "9443:9443"

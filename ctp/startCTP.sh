@@ -39,23 +39,23 @@ then
 	$DATA_REPOSITORY_HOME/server.sh start
 fi
 
-if [ -f $SOAVIRT_HOME/WEB-INF/config.properties ]
-then
-	echo "Starting the SOAVirt server..."
-	mkdir -p $SOAVIRT_HOME/workspace/VirtualAssets/logs/virtualize
-	export CATALINA_BASE=$CATALINA_HOME/soavirt
-	nohup $CATALINA_HOME/bin/catalina.sh run >> $SOAVIRT_HOME/workspace/VirtualAssets/logs/virtualize/catalina.log 2>&1 &
-	sleep 5
+#if [ -f $SOAVIRT_HOME/WEB-INF/config.properties ]
+#then
+#	echo "Starting the SOAVirt server..."
+#	mkdir -p $SOAVIRT_HOME/workspace/VirtualAssets/logs/virtualize
+#	export CATALINA_BASE=$CATALINA_HOME/soavirt
+	#nohup $CATALINA_HOME/bin/catalina.sh run >> $SOAVIRT_HOME/workspace/VirtualAssets/logs/virtualize/catalina.log 2>&1 &
+#	sleep 5
 	# Wait for the user to press Ctrl-C to initiate shutdown
-	tail -f $SOAVIRT_HOME/workspace/VirtualAssets/logs/virtualize/catalina.log
-	export CATALINA_BASE=$CATALINA_HOME/soavirt
-	$CATALINA_HOME/bin/catalina.sh stop
-	sleep 5
-	tail $SOAVIRT_HOME/workspace/VirtualAssets/logs/virtualize/catalina.log
-else
+#	tail -f $SOAVIRT_HOME/workspace/VirtualAssets/logs/virtualize/catalina.log
+#	export CATALINA_BASE=$CATALINA_HOME/soavirt
+#	$CATALINA_HOME/bin/catalina.sh stop
+#	sleep 5
+#	tail $SOAVIRT_HOME/workspace/VirtualAssets/logs/virtualize/catalina.log
+#else
 	# Wait for the user to press Ctrl-C to initiate shutdown
-	tail -f $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log
-fi
+#	tail -f $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log
+#fi
 
 export CATALINA_BASE=$CATALINA_HOME/ctp
 $CATALINA_HOME/bin/catalina.sh stop

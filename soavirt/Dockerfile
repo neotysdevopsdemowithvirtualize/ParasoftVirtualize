@@ -73,4 +73,4 @@ RUN set -x \
 
 EXPOSE ${VIRTUALIZE_SERVER_PORT} ${VIRTUALIZE_SERVER_SECURE_PORT}
 
-CMD [ "startSOAVirtServer.sh" ]
+CMD [ "/usr/local/parasoft/soavirt/startSOAVirtServer.sh" ]

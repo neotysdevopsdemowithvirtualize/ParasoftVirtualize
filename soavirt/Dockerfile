@@ -4,7 +4,7 @@ ARG SOAVIRT_URL=https://www1.parasoft.com/downloads/virtualize/parasoft_soavirt_
 ENV SOAVIRT_HOME /usr/local/parasoft/soavirt
 ENV PATH ${SOAVIRT_HOME}:${PATH}
 WORKDIR ${SOAVIRT_HOME}
-
+COPY . ./
 ENV CATALINA_OPTS "-Xms768M -Xmx768M -server -XX:+UseConcMarkSweepGC -XX:+UseParNewGC"
 
 ENV VIRTUALIZE_SERVER_NAME Docker
@@ -22,7 +22,7 @@ ENV SOATEST_LICENSE_FEATURES "RuleWizard, Command Line, SOA, Web, Server API Ena
 ENV LICENSE_SERVER_HOST localhost
 ENV LICENSE_SERVER_PORT 2002
 
-COPY . ./
+
 
 RUN set -x \
 	&& curl -OfSL "${SOAVIRT_URL}" --retry 999 --retry-max-time 0 -C -\

@@ -22,7 +22,7 @@ ENV SOATEST_LICENSE_FEATURES "RuleWizard, Command Line, SOA, Web, Server API Ena
 ENV LICENSE_SERVER_HOST localhost
 ENV LICENSE_SERVER_PORT 2002
 
-COPY startSOAVirtServer.sh .
+COPY . ./
 
 RUN set -x \
 	&& curl -OfSL "${SOAVIRT_URL}" --retry 999 --retry-max-time 0 -C -\
@@ -68,7 +68,8 @@ RUN set -x \
 	&& echo 'license.network.host=$LICENSE_SERVER_HOST' >> ${SOAVIRT_HOME}/WEB-INF/config.properties \
 	&& echo 'license.network.port=$LICENSE_SERVER_PORT' >> ${SOAVIRT_HOME}/WEB-INF/config.properties \
 	&& yum -y remove unzip \
-	&& yum clean all
+	&& yum clean all \
+	&& chmod 755 ${CTP_HOME}/startSOAVirtServer.sh.sh
 
 EXPOSE ${VIRTUALIZE_SERVER_PORT} ${VIRTUALIZE_SERVER_SECURE_PORT}
 

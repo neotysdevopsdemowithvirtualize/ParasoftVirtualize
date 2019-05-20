@@ -31,6 +31,7 @@ pipeline {
                 sh "docker build -t neotysdevopsdemo/soavirt $WORKSPACE/soavirt/"
                 sh "docker build -t neotysdevopsdemo/ctp $WORKSPACE/ctp/"
                 sh "docker login --username=${USER} --password=${TOKEN}"
+                sh "docker push neotysdevopsdemo/soavirt"
                 sh "docker push neotysdevopsdemo/ctp"
             }
 

@@ -4,7 +4,7 @@ ARG SOAVIRT_URL=https://www1.parasoft.com/downloads/virtualize/parasoft_soavirt_
 ENV SOAVIRT_HOME /usr/local/parasoft/soavirt
 ENV PATH ${SOAVIRT_HOME}:${PATH}
 WORKDIR ${SOAVIRT_HOME}
-COPY . ./
+COPY ./startSOAVirtServer.sh ${SOAVIRT_HOME}/startSOAVirtServer.sh
 ENV CATALINA_OPTS "-Xms768M -Xmx768M -server -XX:+UseConcMarkSweepGC -XX:+UseParNewGC"
 
 ENV VIRTUALIZE_SERVER_NAME Docker

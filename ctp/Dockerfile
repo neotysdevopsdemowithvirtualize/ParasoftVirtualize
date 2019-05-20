@@ -41,4 +41,4 @@ RUN set -x \
 
 EXPOSE ${CTP_PORT} ${LICENSE_SERVER_PORT}
 
-CMD [ "/usr/local/parasoft/ctp/startSOAVirtServer.sh" ]
+CMD [ "/usr/local/parasoft/ctp/startCTP.sh" ]

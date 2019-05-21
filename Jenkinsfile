@@ -39,6 +39,13 @@ pipeline {
 
         }
      }
+     stage('create parasoft netwrok') {
+
+                     steps {
+                          sh "docker network create parasoft"
+
+                     }
+          }
      stage('deploy CTP') {
 
                 steps {
@@ -46,5 +53,12 @@ pipeline {
 
                 }
      }
+     stage('deploy CTP') {
+
+                     steps {
+                          sh "docker-compose -f  ./soavirt/docker-compose.yml up"
+
+                     }
+          }
     }
 }

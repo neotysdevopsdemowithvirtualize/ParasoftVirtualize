@@ -1,9 +1,11 @@
 version: '2'
 
 services:
-  CTP:
-    image: neotysdevopsdemo/ctp:latest
-    hostname: ctp
+  SOAVIRT:
+    image: neotysdevopsdemo/soavirt:latest
+    hostname: soavirt
+    depends_on:
+    - CTP
     restart: always
     cap_drop:
     - all
@@ -16,8 +18,10 @@ services:
     - CTP_PORT=8080
     - VIRTUALIZE_SERVER_NAME=soavirt
     - LICENSE_SERVER_HOST=10.0.0.148
+    - CTP_HOST=ctp
     ports:
-    - "8180:8080"
+    - "9080:9080"
+    - "9443:9443"
 networks:
   default:
     external:

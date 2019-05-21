@@ -19,9 +19,7 @@ pipeline {
                       branch :'master'
           }
       }
-
     stage('Docker build') {
-
         steps {
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'TOKEN', usernameVariable: 'USER')]) {
 
@@ -34,18 +32,15 @@ pipeline {
                 sh "docker push neotysdevopsdemo/soavirt"
                 sh "docker push neotysdevopsdemo/ctp"
             }
-
-
-
         }
      }
      stage('create parasoft netwrok') {
 
-                     steps {
-                          sh "docker network create parasoft"
+             steps {
+                  sh "docker network create parasoft"
 
-                     }
-          }
+             }
+     }
      stage('deploy CTP') {
 
                 steps {
@@ -53,12 +48,12 @@ pipeline {
 
                 }
      }
-     stage('deploy CTP') {
+     stage('deploy soavir') {
 
-                     steps {
-                          sh "docker-compose -f  ./soavirt/docker-compose.yml up"
+                 steps {
+                      sh "docker-compose -f  ./soavirt/docker-compose.yml up"
 
-                     }
-          }
-    }
+                 }
+      }
+  }
 }

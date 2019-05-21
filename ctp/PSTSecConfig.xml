@@ -3,7 +3,7 @@
   <password-required>false</password-required>
   <remote-authentication>
     <enabled>true</enabled>
-    <host>localhost</host>
+    <host>LICENSE_SERVER_HOST</host>
     <port>8083</port>
   </remote-authentication>
 </pstsec-config>

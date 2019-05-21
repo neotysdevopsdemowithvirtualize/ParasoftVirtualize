@@ -28,8 +28,8 @@ RUN set -x \
 	&& cp ${CATALINA_HOME}/conf/server.xml ${CATALINA_HOME}/ctp/conf/ \
 	&& cp ${CATALINA_HOME}/conf/web.xml ${CATALINA_HOME}/ctp/conf/ \
 	&& cp -r ${CATALINA_HOME}/webapps/* ${CATALINA_HOME}/ctp/webapps/ \
-	&& mv licenseserver.war ${CATALINA_HOME}/ctp/webapps/ \
-	&& mv pstsec.war ${CATALINA_HOME}/ctp/webapps/ \
+	#&& mv licenseserver.war ${CATALINA_HOME}/ctp/webapps/ \
+	#&& mv pstsec.war ${CATALINA_HOME}/ctp/webapps/ \
 	&& unzip em.war -d ${CATALINA_HOME}/ctp/webapps/em/ \
 	&& mv database.properties ${CATALINA_HOME}/ctp/webapps/em/WEB-INF/classes/META-INF/spring/ \
 	&& mv license ${CATALINA_HOME}/ctp/webapps/em/ \

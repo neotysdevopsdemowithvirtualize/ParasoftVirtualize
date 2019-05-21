@@ -4,8 +4,6 @@ services:
   SOAVIRT:
     image: neotysdevopsdemo/soavirt:latest
     hostname: soavirt
-    depends_on:
-    - CTP
     restart: always
     cap_drop:
     - all

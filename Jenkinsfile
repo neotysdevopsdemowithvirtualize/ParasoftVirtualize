@@ -37,7 +37,7 @@ pipeline {
      stage('create parasoft netwrok') {
 
              steps {
-                  sh "docker network create parasoft"
+                  sh "docker network create parasoft || true"
 
              }
      }

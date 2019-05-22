@@ -34,7 +34,7 @@ nohup $CATALINA_HOME/bin/catalina.sh run >> $SOAVIRT_HOME/workspace/VirtualAsset
 sleep 5
 echo $CATALINA_OPTS
 tail $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log
-sleep 25 # Wait for CTP to start up so TDM and Virtualize can register
+sleep 120 # Wait for CTP to start up so TDM and Virtualize can register
 tail $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log
 
 # Evaluate and replace the environment variables in the Data Repository Server
@@ -66,6 +66,6 @@ fi
 #fi
 
 export CATALINA_BASE=$CATALINA_HOME/ctp
-$CATALINA_HOME/bin/catalina.sh stop
+#$CATALINA_HOME/bin/catalina.sh stop
 sleep 5
 tail $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log

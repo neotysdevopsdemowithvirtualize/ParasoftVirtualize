@@ -6,6 +6,11 @@ ARG TOMCAT_URL=http://archive.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR}/v${T
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH ${CATALINA_HOME}/bin:${PATH}
 WORKDIR ${CATALINA_HOME}
+ENV XMS=512m
+ENV XMX=8192m
+ENV MAXPERMSIZE=256m
+
+
 
 # see https://www.apache.org/dist/tomcat/tomcat-8/KEYS
 RUN gpg --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys \
@@ -29,6 +34,9 @@ RUN set -x \
 	&& gpg --verify tomcat.tar.gz.asc \
 	&& tar -xvf tomcat.tar.gz --strip-components=1 \
 	&& rm bin/*.bat \
-	&& rm tomcat.tar.gz*
+	&& rm tomcat.tar.gz* \
+	&& export CATALINA_OPTS="$CATALINA_OPTS -Xms${XMS}"
+    && export CATALINA_OPTS="$CATALINA_OPTS -Xmx${XMX}"
+    && export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize=${MAXPERMSIZE}"
 
 CMD [ "catalina.sh", "run" ]

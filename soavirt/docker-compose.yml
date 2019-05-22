@@ -17,6 +17,8 @@ services:
     - VIRTUALIZE_SERVER_NAME=soavirt
     - LICENSE_SERVER_HOST=10.0.0.148
     - CTP_HOST=ctp
+    - XMX=2048m
+    - XMS=512m
     ports:
     - "9080:9080"
     - "9443:9443"

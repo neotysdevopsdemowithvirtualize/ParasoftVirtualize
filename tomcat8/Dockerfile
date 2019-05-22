@@ -35,8 +35,8 @@ RUN set -x \
 	&& tar -xvf tomcat.tar.gz --strip-components=1 \
 	&& rm bin/*.bat \
 	&& rm tomcat.tar.gz* \
-	&& export CATALINA_OPTS="$CATALINA_OPTS -Xms${XMS}"
-    && export CATALINA_OPTS="$CATALINA_OPTS -Xmx${XMX}"
+	&& export CATALINA_OPTS="$CATALINA_OPTS -Xms${XMS}" \
+    && export CATALINA_OPTS="$CATALINA_OPTS -Xmx${XMX}" \
     && export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize=${MAXPERMSIZE}"
 
 CMD [ "catalina.sh", "run" ]

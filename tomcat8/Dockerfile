@@ -27,7 +27,6 @@ RUN gpg --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys \
 	F3A04C595DB5B6A5F1ECA43E3B7BBB100D811BBE \
 	F7DA48BB64BCB84ECBA7EE6935CD23C10D498E23 \
 	713DA88BE50911535FE716F5208B0AB1D63011C7
-
 RUN set -x \
 	&& curl -fSL "${TOMCAT_URL}" -o tomcat.tar.gz \
 	&& curl -fSL "${TOMCAT_URL}.asc" -o tomcat.tar.gz.asc \
@@ -36,6 +35,9 @@ RUN set -x \
 	&& rm bin/*.bat \
 	&& rm tomcat.tar.gz*
 
-COPY ./setenv.sh bin/setenv.sh
+
+COPY ./setenv.sh ${CATALINA_HOME}/bin/setenv.sh
+
+RUN chmod 755 ${CATALINA_HOME}/bin/setenv.sh
 
 CMD [ "catalina.sh", "run" ]

@@ -27,7 +27,7 @@ fi
 echo "Starting the Continuous Testing Platform..."
 mkdir -p $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp
 export CATALINA_BASE=$CATALINA_HOME/ctp
-export CATALINA_OPTS="$CATALINA_OPTS -Xms$XMS"
+export CATALINA_OPTS="-server -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -Xms$XMS"
 export CATALINA_OPTS="$CATALINA_OPTS -Xmx$XMX"
 export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize=$MAXPERMSIZE"
 nohup $CATALINA_HOME/bin/catalina.sh run >> $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log 2>&1 &

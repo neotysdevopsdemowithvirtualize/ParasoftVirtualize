@@ -1,5 +1,5 @@
 #!/bin/sh
-export CATALINA_OPTS="$CATALINA_OPTS -Xms$XMS"
+export CATALINA_OPTS="-server -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -Xms$XMS"
 export CATALINA_OPTS="$CATALINA_OPTS -Xmx$XMX"
 export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize=$MAXPERMSIZE"
 # Evaluate and replace the environment variables in the Data Repository Server

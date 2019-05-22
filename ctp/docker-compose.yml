@@ -17,7 +17,7 @@ services:
     - VIRTUALIZE_SERVER_NAME=soavirt
     - LICENSE_SERVER_HOST=10.0.0.148
     - XMX=2048m
-    - XMS=1024m
+    - XMS=2048m
     ports:
     - "8180:8080"
 networks:

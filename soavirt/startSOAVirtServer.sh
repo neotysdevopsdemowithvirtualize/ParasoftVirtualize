@@ -1,8 +1,11 @@
 #!/bin/sh
-
+export CATALINA_OPTS="$CATALINA_OPTS -Xms$XMS"
+export CATALINA_OPTS="$CATALINA_OPTS -Xmx$XMX"
+export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize=$MAXPERMSIZE"
 # Evaluate and replace the environment variables in the Data Repository Server
 if [ -f $DATA_REPOSITORY_HOME/server.sh ]
 then
+
 	sed -i "s/\$CTP_HOST/$CTP_HOST/g" $DATA_REPOSITORY_HOME/server.sh
 	sed -i "s/\$CTP_PORT/$CTP_PORT/g" $DATA_REPOSITORY_HOME/server.sh
 	sed -i "s/\$CTP_USERNAME/$CTP_USERNAME/g" $DATA_REPOSITORY_HOME/server.sh

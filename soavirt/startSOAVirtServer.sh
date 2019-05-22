@@ -11,6 +11,9 @@ then
 fi
 
 # Evaluate and replace the environment variables in the Virtualize config
+sed -i "s/\$XMS/$XMS/g" $CATALINA_HOME/bin/setenv.sh
+sed -i "s/\$XMX/$XMX/g" $CATALINA_HOME/bin/setenv.sh
+sed -i "s/\$MAXPERMSIZE/$MAXPERMSIZE/g" $CATALINA_HOME/bin/setenv.sh
 
 sed -i "s/\$VIRTUALIZE_SERVER_NAME/$VIRTUALIZE_SERVER_NAME/g" $SOAVIRT_HOME/WEB-INF/config.properties
 sed -i "s/\$VIRTUALIZE_SERVER_PORT/$VIRTUALIZE_SERVER_PORT/g" $SOAVIRT_HOME/WEB-INF/config.properties

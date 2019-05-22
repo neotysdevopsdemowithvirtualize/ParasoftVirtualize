@@ -1,8 +1,11 @@
 #!/bin/sh
-echo $CATALINA_OPTS
+
 # Evaluate and replace the environment variables in the Virtualize config
 if [ -f $SOAVIRT_HOME/WEB-INF/config.properties ]
 then
+    sed -i "s/\$XMS/$XMS/g" $CATALINA_HOME/bin/setenv.sh
+    sed -i "s/\$XMX/$XMX/g" $CATALINA_HOME/bin/setenv.sh
+    sed -i "s/\$MAXPERMSIZE/$MAXPERMSIZE/g" $CATALINA_HOME/bin/setenv.sh
 	sed -i "s/\$VIRTUALIZE_SERVER_NAME/$VIRTUALIZE_SERVER_NAME/g" $SOAVIRT_HOME/WEB-INF/config.properties
 	sed -i "s/\$VIRTUALIZE_SERVER_PORT/$VIRTUALIZE_SERVER_PORT/g" $SOAVIRT_HOME/WEB-INF/config.properties
 	sed -i "s/\$VIRTUALIZE_SERVER_SECURE_PORT/$VIRTUALIZE_SERVER_SECURE_PORT/g" $SOAVIRT_HOME/WEB-INF/config.properties
@@ -26,6 +29,7 @@ mkdir -p $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp
 export CATALINA_BASE=$CATALINA_HOME/ctp
 nohup $CATALINA_HOME/bin/catalina.sh run >> $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log 2>&1 &
 sleep 5
+echo $CATALINA_OPTS
 tail $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log
 sleep 25 # Wait for CTP to start up so TDM and Virtualize can register
 tail $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log

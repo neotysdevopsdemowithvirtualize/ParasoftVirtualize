@@ -9,13 +9,13 @@ pipeline {
 
     GROUP = "neotysdevopsdemowithvirtualize"
     APP_NAME="ParasoftVirtualize"
-
+    IP= InetAddress.localHost.canonicalHostName
   }
   stages {
       stage('Checkout') {
           agent { label 'master' }
           steps {
-             println InetAddress.localHost.canonicalHostName
+              println ${IP}
               git  url:"https://github.com/${GROUP}/${APP_NAME}.git",
                       branch :'master'
           }

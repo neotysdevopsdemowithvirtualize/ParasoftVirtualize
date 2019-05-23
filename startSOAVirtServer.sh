@@ -28,4 +28,7 @@ sed -i "s/\$LICENSE_SERVER_HOST/$LICENSE_SERVER_HOST/g" $SOAVIRT_HOME/WEB-INF/co
 sed -i "s/\$LICENSE_SERVER_PORT/$LICENSE_SERVER_PORT/g" $SOAVIRT_HOME/WEB-INF/config.properties
 
 export CATALINA_BASE=$CATALINA_HOME/soavirt
-$CATALINA_HOME/bin/catalina.sh run
+nohup $CATALINA_HOME/bin/catalina.sh run >> $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log 2>&1 &
+
+sleep 5
+tail $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log

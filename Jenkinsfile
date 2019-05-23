@@ -23,7 +23,7 @@ pipeline {
         steps {
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'TOKEN', usernameVariable: 'USER')]) {
                 IP=sh "ifconfig eth0| egrep -o \'inet ([[:digit:]]{1,3}\\.[[:digit:]]{1,3}\\.[[:digit:]]{1,3}\\.[[:digit:]]{1,3})\'|egrep -o \'([[:digit:]]{1,3}\\.[[:digit:]]{1,3}\\.[[:digit:]]{1,3}\\.[[:digit:]]{1,3})\'"
-                echo ${IP}
+                echo "${IP}"
                 sh "docker build -t neotysdevopsdemo/server-jre8 $WORKSPACE/server-jre8/"
                 sh "docker build -t neotysdevopsdemo/tomcat8 $WORKSPACE/tomcat8/"
                 sh "docker build -t neotysdevopsdemo/datarepository $WORKSPACE/datarepository/"

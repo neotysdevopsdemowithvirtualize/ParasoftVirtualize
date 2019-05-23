@@ -11,7 +11,7 @@ pipeline {
     APP_NAME="ParasoftVirtualize"
 
   }
-  masterIP = InetAddress.localHost.hostAddress
+  def masterIP = InetAddress.localHost.hostAddress
 
   stages {
       stage('Checkout') {

@@ -15,6 +15,7 @@ pipeline {
       stage('Checkout') {
           agent { label 'master' }
           steps {
+             println InetAddress.localHost.canonicalHostName
               git  url:"https://github.com/${GROUP}/${APP_NAME}.git",
                       branch :'master'
           }

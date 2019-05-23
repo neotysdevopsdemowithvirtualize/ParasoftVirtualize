@@ -21,7 +21,7 @@ pipeline {
       }
     stage('Docker build') {
         steps {
-            def masterIP = InetAddress.localHost.hostAddress
+            masterIP = InetAddress.localHost.hostAddress
             println "${masterIP}"
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'TOKEN', usernameVariable: 'USER')]) {
 

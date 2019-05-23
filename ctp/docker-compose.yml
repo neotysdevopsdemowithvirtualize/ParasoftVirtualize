@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  CTP:
+  ctp:
     image: neotysdevopsdemo/ctp:latest
     hostname: ctp
     restart: always

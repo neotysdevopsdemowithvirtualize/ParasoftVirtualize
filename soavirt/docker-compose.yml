@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  SOAVIRT:
+  soavirt:
     image: neotysdevopsdemo/soavirt:latest
     hostname: soavirt
     restart: always

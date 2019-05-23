@@ -33,6 +33,8 @@ export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize=$MAXPERMSIZE"
 nohup $CATALINA_HOME/bin/catalina.sh run >> $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log 2>&1 &
 sleep 5
 echo $CATALINA_OPTS
+tail  $CATALINA_HOME/logs/catalina.out
+
 tail $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log
 sleep 120 # Wait for CTP to start up so TDM and Virtualize can register
 tail $SOAVIRT_HOME/workspace/VirtualAssets/logs/ctp/catalina.log

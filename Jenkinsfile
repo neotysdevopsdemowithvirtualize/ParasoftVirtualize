@@ -23,9 +23,10 @@ pipeline {
       }
     stage('Docker build') {
         steps {
+            sh "sed -i 's/IP_TO_REPLACE/${masterIP}/'  $WORKSPACE/soavirt/docker-compose.yml"
+            sh "sed -i 's/IP_TO_REPLACE/${masterIP}/'  $WORKSPACE/ctp/docker-compose.yml"
 
             withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'TOKEN', usernameVariable: 'USER')]) {
-                echo "${masterIP}"
                 sh "docker build -t neotysdevopsdemo/server-jre8 $WORKSPACE/server-jre8/"
                 sh "docker build -t neotysdevopsdemo/tomcat8 $WORKSPACE/tomcat8/"
                 sh "docker build -t neotysdevopsdemo/datarepository $WORKSPACE/datarepository/"

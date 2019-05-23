@@ -15,7 +15,7 @@ services:
     environment:
     - CTP_PORT=8080
     - VIRTUALIZE_SERVER_NAME=soavirt
-    - LICENSE_SERVER_HOST=10.0.0.148
+    - LICENSE_SERVER_HOST=IP_TO_REPLACE
     - XMX=2048m
     - XMS=2048m
     ports:

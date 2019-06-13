@@ -3,6 +3,7 @@ FROM neotysdevopsdemo/tomcat8:latest
 ARG DATA_REPOSITORY_URL=https://www1.parasoft.com/downloads/virtualize/parasoft_data_repository_server_9.10_linux_x86_64.zip
 ENV DATA_REPOSITORY_HOME /usr/local/parasoft/DataRepositoryServer-linux-x86_64
 ENV PATH ${DATA_REPOSITORY_HOME}/bin:${PATH}
+ENV DTM_PORT 2424
 WORKDIR ${DATA_REPOSITORY_HOME}
 
 RUN set -x \
@@ -17,9 +18,10 @@ RUN set -x \
 	&& sed -i 's/^TDM=.*/TDM=http:\/\/$CTP_HOST:$CTP_PORT/' $DATA_REPOSITORY_HOME/server.sh \
 	&& sed -i 's/^T_USER=.*/T_USER=$CTP_USERNAME/' $DATA_REPOSITORY_HOME/server.sh \
 	&& sed -i 's/^T_PASS=.*/T_PASS=$CTP_PASSWORD/' $DATA_REPOSITORY_HOME/server.sh \
+	&& chmod 755 $DATA_REPOSITORY_HOME/server.sh \
 	&& yum -y remove unzip \
 	&& yum clean all
 
-EXPOSE 2424
+EXPOSE ${DTM_PORT}
 
 CMD ["server.sh", "start"]

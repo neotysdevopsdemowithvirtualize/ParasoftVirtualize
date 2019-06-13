@@ -2,6 +2,7 @@
 export CATALINA_OPTS="-server -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -Xms$XMS"
 export CATALINA_OPTS="$CATALINA_OPTS -Xmx$XMX"
 export CATALINA_OPTS="$CATALINA_OPTS -XX:MaxPermSize=$MAXPERMSIZE"
+whoami
 # Evaluate and replace the environment variables in the Data Repository Server
 if [ -f $DATA_REPOSITORY_HOME/server.sh ]
 then

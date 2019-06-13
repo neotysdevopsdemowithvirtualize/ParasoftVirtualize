@@ -20,6 +20,7 @@ services:
     - XMS=2048m
     ports:
     - "8180:8080"
+    - "2424:2424"
 networks:
   default:
     external:

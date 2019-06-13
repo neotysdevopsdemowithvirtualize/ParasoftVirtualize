@@ -39,6 +39,6 @@ RUN set -x \
 	&& yum clean all \
 	&& chmod 755 ${CTP_HOME}/startCTP.sh
 
-EXPOSE ${CTP_PORT} ${LICENSE_SERVER_PORT}
+EXPOSE ${CTP_PORT} ${LICENSE_SERVER_PORT} ${DTM_PORT}
 
 CMD [ "/usr/local/parasoft/ctp/startCTP.sh" ]
